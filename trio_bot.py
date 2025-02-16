@@ -17,7 +17,7 @@ class Bot(commands.Bot):
         
     # Event that runs when the bot is ready
     async def on_ready(self):
-        print(f'Logged in as {bot.user}')
+        print(f'Logged in as {self.user}')
 
     # Event that listens for messages
     async def on_message(self, message):

@@ -1,3 +1,4 @@
+from trio_bot import Bot
 
 if __name__ == '__main__':
     # Run the bot with your token
