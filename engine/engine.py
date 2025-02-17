@@ -15,8 +15,6 @@ from .move import Move, MoveType, CMD_PICK_PLAYER
 # this map the player cuont to the number of card
 # to be put in the middle of table 
 player_count_to_left_card_count = {
-    1: 3,
-    2: 10,
     3: 9,
     4: 8,
     5: 6,

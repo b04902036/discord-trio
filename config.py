@@ -9,6 +9,6 @@ class GameMode(Enum):
     # Not implemented yet
     # TEAM = auto()
 
-ACCEPTED_USER_COUNT = [1, 2, 3, 4, 5, 6]
+ACCEPTED_USER_COUNT = [3, 4, 5, 6]
 GAME_CHANNEL_NAME = 'trio'
 GAME_MODE = GameMode.TRIO
