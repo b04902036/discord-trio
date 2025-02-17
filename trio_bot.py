@@ -26,11 +26,11 @@ class Bot(commands.Bot):
             return
         
         # Only response to message in GAME_CHANNEL_NAME or DM
-        #if isinstance(message.channel, TextChannel):
-        #    if message.channel.name != GAME_CHANNEL_NAME:
-        #        return
-        #elif not isinstance(message.channel, DMChannel):
-        #    return
+        if isinstance(message.channel, TextChannel):
+            if message.channel.name != GAME_CHANNEL_NAME:
+                return
+        elif not isinstance(message.channel, DMChannel):
+            return
         
         # Process other commands if there are any
         if message.content.startswith(self.command_prefix):
