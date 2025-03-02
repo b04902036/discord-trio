@@ -142,6 +142,14 @@ class Engine:
             await send_message(player, f":x: Not your turn to play, {player.name}!")
             raise InvalidMove(f"expecting {expected_player} to play, get {player}")
         
+        # cleanup first before any check
+        if self._should_clear:  
+            for _card in self._opened_cards:
+                _card.turn_down()
+            self._opened_cards = []
+            self._last_moves = []
+            self._should_clear = False
+
         if move.type == MoveType.PICK_MIDDLE:
             card = self._middle_cards[move.card_idx]
         elif move.type == MoveType.PICK_PLAYER_LOWEST:
@@ -169,14 +177,6 @@ class Engine:
         else:
             await send_message(player, ":x: Unknown move, pick another one!")
             raise InvalidMove(f"unknown move {move}")
-        
-        # cleanup first before any check
-        if self._should_clear:  
-            for _card in self._opened_cards:
-                _card.turn_down()
-            self._opened_cards = []
-            self._last_moves = []
-            self._should_clear = False
 
         if card.is_taken():
             await send_message(player, ":x: Card already taken, pick another one!")
